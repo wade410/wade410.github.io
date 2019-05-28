@@ -1,12 +1,13 @@
 # Basic
 title: 小呼哥
-subtitle: 自留地
+subtitle: huwei
 description: 欢迎来到我的个人网站
 # 头像里面的标题
-avatarTitle: RobotKang
+avatarTitle: 小呼哥
 # 头像里面的描述
-avatarDesc: 机器人赛事/嵌入式
+avatarDesc: 小白
 url: "http://robotkang.cc"
+# 域名
 
 # Comment
 comment:
@@ -17,11 +18,11 @@ comment:
 # Social
 social:
     weibo: 123456789
-    weixing: kang1390305137 
-    github: MengZheK
+    weixing: hu2535357585
+    github: wade410
     # twitter: 
-    mail: robotkang@foxmail.com
-    csdn: robotkang
+    mail: huwi201901@163.com
+    
 
 # 百度统计 
 # 使用博客模板请去掉或者更换 id 
