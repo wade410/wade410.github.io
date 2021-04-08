@@ -65,8 +65,8 @@ blog_button:
 nav:
     - {title: 所有文章, description: archive, url: '/archive'}   
     - {title: 标签, description: tags, url: '/tags'}      
-    - {title: 关于我, description: about, url: '/about'}      
-    - {title: mylove, description: about, url: '/mylove'}       
+    - {title: 记录, description: about, url: '/footPrint'}   
+    - {title: 关于我, description: about, url: '/about'}     
 
 # Pagination
 gems: [jekyll-paginate,jekyll-sitemap]

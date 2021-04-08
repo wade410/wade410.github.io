@@ -1,0 +1,127 @@
+<html>
+	<head>
+                <meta charset="UTF-8">
+
+		<!--引入jQuery框架-->
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<!--引入jVectorMap库-->
+		<script type="text/javascript" src="js/jquery-jvectormap-1.2.2.min.js"></script>
+		<!--引入样式表-->
+		<link href="js/jquery-jvectormap-1.2.2.css" rel="stylesheet" media="screen">
+
+
+		<!--引入中国地图数据库-->
+		<script type="text/javascript" src="js/jquery-jvectormap-cn-merc-en.js"></script>
+
+		<!--引入美国地图数据库-->
+		<!--script type="text/javascript" src="js/jquery-jvectormap-us-aea.js"></script-->
+		<!--引入世界地图数据库-->
+		<!--script type="text/javascript" src="js/jquery-jvectormap-world-mill.js"></script-->
+
+	</head>
+<body>
+	<!--background-color: 地图背景颜色-->
+	<div id="map" style="background-color:#353535"> </div>
+	<script>
+var markdata = [
+     {latLng: [40.22, 116.23], name: '昌平'},
+		        {latLng: [34.44, 115.61], name: '商丘'},
+		        {latLng: [46.52, 83.62], name: '额敏'},
+ 		        {latLng: [30.49, 120.27], name: '杭州'},
+                                        {latLng: [31.72, 119.59], name: '常州'},
+                                        {latLng: [30.49, 114.34], name: '武汉'},
+ 		        {latLng: [25.60, 100.26], name: '大理'},
+                                        {latLng: [28.23, 112.93], name: '长沙'},
+		        {latLng: [24.88, 102.82], name: '昆明'},
+ 		        {latLng: [26.87, 100.22], name: '丽江'},
+                                        {latLng: [24.68, 108.03], name: '河池'},
+                                        {latLng: [25.78, 113.01], name: '郴州'},
+ 		        {latLng: [27.57, 110.04], name: '怀化'},
+                                        {latLng: [36.06, 120.31], name: '青岛'},
+		        {latLng: [31.03, 121.22], name: '上海松江区'},
+ 		        {latLng: [34.62, 115.98], name: '菏泽'},
+                                        {latLng: [28.26, 109.69], name: '吉首'},
+                                        {latLng: [34.50, 116.21], name: '砀山'},
+];
+
+	var eventdata = [
+    {id: 'CN-32', event: '相册', url: '/photos/'}
+];
+	
+var regdata = {
+    "CN-41": 1, // 河南
+    "CN-31": 0, // 上海
+   "CN-32": 0, // 江苏
+    "CN-33": 1, // 浙江
+    //"CN-44": 0, // 广东
+    //"CN-61": 1, // 陕西
+    //"CN-63": 1, // 青海
+//"CN-62": 1, // 甘肃
+//"CN-64": 1, // 宁夏
+"CN-34": 0, // 安徽
+"CN-43": 0, // 湖南
+"CN-45": 0, // 广西
+"CN-42": 0, // 湖北
+//"CN-46": 1, // 海南
+    //"CN-22": 1, // 吉林
+    //"CN-23": 1, // 黑龙江
+    //"CN-54": 1, // 西藏
+    //"CN-18": 1  // 台湾
+"CN-11": 0, // 北京
+//"CN-13": 0, // 河北
+//"CN-14": 0, // 山西
+//"CN-35": 1, // 福建
+//"CN-51": 0, // 四川
+    "CN-53": 0, // 云南
+//"CN-15": 0, // 内蒙古
+//"CN-50": 0, // 重庆
+//"CN-52": 0, // 贵州
+//"CN-21": 0, // 辽宁
+"CN-65": 1, // 新疆
+"CN-37": 1, // 山东
+ 
+};
+
+$('#map').vectorMap({
+    map: 'cn_merc_en',
+    backgroundColor: 'transparent',
+    scaleColors: ['#C8EEFF', '#0071A4'],
+    normalizeFunction: 'polynomial',
+    hoverOpacity: 0.7,
+    hoverColor: false,
+    //--- 标记
+    markerStyle: {
+        initial: {
+            fill: '#fd8888',
+            stroke: '#fff'
+        }
+    },
+    markers: markdata,
+    //--- 改变地区颜色
+    series: {
+        regions: [{
+            values: regdata,
+            //scale: ['#FFDD00','#87CEEB'],
+            scale: ['#e5e5e5'],
+            normalizeFunction: 'polynomial'
+        }]
+    },
+    //--- 改变标签
+    onRegionTipShow: function(e, el, code){
+        $.each(eventdata, function(i, items){
+            if ((items.id == code) && (items.event != '')){
+                el.html(el.html() + ' - ' + items.event);
+            }
+        })
+    },
+    //--- 打开页面
+    onRegionClick: function(event, code){
+        $.each(eventdata, function(i, items){
+            if ((items.id == code) && (items.url != '')){
+                if (confirm('是否打开相册？')) window.open(items.url);
+            }
+        });
+    },
+});
+</script>
+</html>
