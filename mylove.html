@@ -10,45 +10,7 @@
 		<script>
 			$(function() {
 				
-				//开启弹框
-				 function opendiv(){
-					 layui.use('layer', function(){
-					   var layer = layui.layer;
-					   layer.open({
-					   	type: 1,
-					   	title: "2020倒计时",
-					   	anim: 2,
-					   	area: ['600px', '500px'],
-					   	content: $(".newYear"),
-					   	success: function(layero, index) {},
-					   	yes: function() {}
-					   });
-					  })
-				 }
-				 
-				 var isOpen=1;
-				 var setInterval2=setInterval(function() {
-					 if(new Date().getTime()-new Date("2020/1/2 00:00:00").getTime()>0){
-						 isOpen=-1;
-					 }
-					 if(isOpen==1){
-						isOpen=0;
-						 opendiv();
-					 }else if(isOpen==-1){
-						 return;
-					 }
-					 console.log((new Date("2020/1/1 00:00:00").getTime()-new Date().getTime())/1000)
-					 $(".endSeconds").html(Math.ceil((new Date("2020/1/1 00:00:00").getTime()-new Date().getTime())/1000)+" 秒")
-					 if(new Date("2020/1/1 00:00:00").getTime()-new Date().getTime()<=0){
-						$(".endTitle1").html("2020 年");
-					 	$(".endSeconds").html("祝你事事如意");
-						$(".endTitle2").show();
-						$(".newYear").css("background-image","url(img/gif011.gif)")
-						$(".newYear").append("<img src=\"img/love1.jpg\" alt=\"loveImg\" style=\"height: 280px;border: 10px solid rgba(255,255,205,0.7);\" />")
-						clearInterval(setInterval2);
-					 }
-				 })
-				 
+				  
 				var setInterval1=setInterval(function() {
 					let nTime = new Date();
 					dateDiff(nTime, "2018-05-13 22:13:00");
@@ -158,15 +120,7 @@
 		<audio autoplay="autoplay" loop class="audio1">
 			<source src="music/yuai.mp3" type="audio/mpeg">
 		</audio>
-		<div class="newYear" style="font-size: 30px;color: #0FCECE;text-align: center;display: none">
-			<br />
-			<h2 class="endTitle1">距离2020年还剩余：</h2>
-			<br />
-			<h1 style="font-size: 88px;color: aqua;" class="endSeconds">50秒</h1>
-			<br />
-			<h2 class="endTitle2" style="font-size: 88px;color: red;display: none;">❤❤</h2>
-			<br />
-		</div>
+		 
 		<footer id="author">
 			<p>@CSU</p>
 			<p>今天天气不错</p>
